@@ -1,0 +1,20 @@
+div {
+    font-family: Jua, sans-serif;
+}
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-50 { margin-top: 50px; }
+.mr-10 { margin-right: 10px; }
+
+.ta-c { text-align: center; }
+.ta-r { text-align: right; }
+
+.fw-b { font-weight: bold; }
+
+.number { text-align: right; }
+
+.w-80 { width: 80px; }
+
+.hide { display: none; }
+
+.ball_645 .badge { position: relative; top: -110px; }
