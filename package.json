@@ -1,10 +1,13 @@
 {
+  "homepage": "https://neoeyes.github.io/lotto645",
   "name": "vue-lotto-project",
   "version": "1.0.39-0",
   "description": "A Vue.js project",
   "author": "neo <neoip.0514@gmail.com>",
   "private": true,
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
