@@ -43,6 +43,12 @@ npm install vuex --save
 
 ## version patch
 
-```
+```sh
 npm version patch
+```
+
+## https://neoeyes.github.io/lotto645/ 배포
+
+```sh
+npm run deploy
 ```
