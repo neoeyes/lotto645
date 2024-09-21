@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib.request
 import urllib.parse
-import subprocess
 
 print('Start...')
 url = 'https://dhlottery.co.kr/gameResult.do?method=byWin&wiselog=C_A_1_1'
@@ -20,17 +19,6 @@ with urllib.request.urlopen(url) as response:
 text = f'/* {round} {desc} */ {numbers}'
 print(text)
 
-def git_commit(message):
-    try:
-        # Stage all changes
-        subprocess.run(["git", "add", "."], check=True)
-        
-        # Commit changes with the provided message
-        subprocess.run(["git", "commit", "-m", message], check=True)
-        
-        print("Changes committed successfully!")
-    except subprocess.CalledProcessError as e:
-        print(f"An error occurred: {e}")
 
 def insert_string_in_file(file_path, position, string_to_insert, encoding='utf-8'):
     try:
@@ -40,7 +28,6 @@ def insert_string_in_file(file_path, position, string_to_insert, encoding='utf-8
 
         if string_to_insert in content:
             print("이미 등록된 문자열입니다.")
-            return False
         else:
             # 문자열 삽입
             new_content = content[:position] + string_to_insert + content[position:]
@@ -50,20 +37,15 @@ def insert_string_in_file(file_path, position, string_to_insert, encoding='utf-8
                 file.write(new_content)
 
             print("문자열이 성공적으로 삽입되었습니다.")
-            return True
+        
     except Exception as e:
         print(f"오류 발생: {e}")
-        return False
 
 # 사용 예시
 file_path = './src/store/modules/winNumbers.js'  # 파일 경로를 입력하세요
 position = 44              # 삽입할 위치 (문자열의 인덱스)
 string_to_insert = f'{text},\n  '  # 삽입할 문자열
 
-result = insert_string_in_file(file_path, position, string_to_insert)
-
-if result == False:
-    commit_message = f"add {round}"
-    git_commit(commit_message)
+insert_string_in_file(file_path, position, string_to_insert)
 
 print('End.')
