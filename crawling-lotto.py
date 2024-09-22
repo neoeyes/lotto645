@@ -62,7 +62,7 @@ string_to_insert = f'{text},\n  '  # 삽입할 문자열
 
 result = insert_string_in_file(file_path, position, string_to_insert)
 
-if result == False:
+if result == True:
     commit_message = f"add {round}"
     git_commit(commit_message)
 
